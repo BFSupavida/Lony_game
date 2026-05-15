@@ -1,0 +1,238 @@
+/* ══════════════════════════════════
+   LONY GLOBAL STYLES
+   ══════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #A8D8EA;
+  font-family: 'Noto Sans Thai', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent iOS bounce */
+  overscroll-behavior: none;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.25); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ── TYPOGRAPHY HELPERS ── */
+.font-logo {
+  /* Replace with your chosen script font */
+  font-family: 'Noto Serif Thai', serif;
+  font-weight: 900;
+}
+
+/* ── SCROLLBAR HIDE ── */
+::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; }
+
+/* ── TEXTAREA ── */
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+}
+textarea::placeholder { font-style: italic; }
+
+/* ── BUTTON RESET ── */
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+button:active { transform: scale(0.97); }
+
+/* คอนเทนเนอร์หลัก (กล่องสีน้ำตาลเข้มในรูป) */
+.countdown-display.dark {
+  background-color: #382F2C; /* สีน้ำตาลเข้มตามแอป Lony */
+  padding: 30px;
+  border-radius: 20px; /* ขอบมน */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* จัดกึ่งกลางแนวนอน */
+  justify-content: center; /* จัดกึ่งกลางแนวตั้ง */
+  gap: 10px; /* ระยะห่างระหว่าง Orb, ตัวเลข, และตัวหนังสือ */
+  width: 100%; /* หรือกำหนดขนาดตามความเหมาะสม */
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.2); /* เพิ่มมิติความลึกเล็กน้อย */
+}
+
+.countdown-display {
+  display: flex;
+  flex-direction: column; /* จัดของลงมาเป็นแนวตั้ง */
+  align-items: center;    /* จัดให้อยู่ตรงกลางแนวนอน */
+  justify-content: center; /* จัดให้อยู่ตรงกลางแนวตั้ง (ถ้ามีส่วนสูง) */
+  text-align: center;
+}
+
+/* สร้าง Orb (วงกลม) สีเข้มด้านบน */
+.countdown-orb {
+  width: 60px; /* ขนาดวงกลม */
+  height: 60px;
+  background-color: #1A1513; /* สีเกือบดำ */
+  border-radius: 50%; /* ทำให้เป็นวงกลมเป๊ะ */
+  
+  /* หัวใจสำคัญ: แสงออร่าสีส้ม/ทองรอบๆ Orb (Halo effect) */
+  box-shadow: 0 0 25px 8px rgba(204, 139, 39, 0.7); /* สีทองส้มอมน้ำตาล */
+  
+  margin-bottom: 5px; /* ระยะห่างด้านล่างก่อนถึงตัวเลข */
+}
+
+/* แก้ไขดีไซน์ตัวเลข Countdown (ตัวเลข 25 ในรูป) */
+.countdown-number {
+  /* ใช้ Font Sans-serif ที่ดูทันสมัยและหนา */
+  font-family: 'Inter', 'Helvetica Neue', sans-serif; 
+  font-size: 64px; /* ขนาดใหญ่โดดเด่นตามรูป */
+  font-weight: 700; /* ตัวหนามาก */
+  
+  /* สีทอง/เหลืองมัสตาร์ดตามรูป Lony */
+  /* color: #F4B961;  */
+  color: #1A1513;
+  
+  line-height: 1; /* ให้ชิดตัวบนตัวล่าง */
+  margin: 0;
+  letter-spacing: -2px; /* บีบตัวเลขเข้าหากันเล็กน้อยเพื่อให้ดูแน่นเหมือนในรูป */
+}
+
+/* ตัวหนังสือคำอธิบายด้านล่าง */
+.countdown-subtitle {
+  font-size: 14px;
+  
+  /* สีครีม/เทาอ่อนเพื่อให้ตัดกับพื้นหลังเข้ม แต่ไม่เด่นเท่าตัวเลข */
+  color: #C4BFAF; 
+  
+  margin-top: -5px; /* ขยับขึ้นไปชิดตัวเลขอีกนิด */
+  opacity: 0.9;
+}
+
+/* หน้าความเหงาอยู่ที่ไหน ปุ่มของความเหงา */
+/* จัดเรียงปุ่มให้อยู่ตรงกลางและเว้นระยะห่างสวยงาม */
+.grid-2 {
+  display: flex;
+  flex-wrap: wrap; /* ถ้าที่รันไม่พอให้ปัดตกบรรทัดใหม่ */
+  gap: 10px; /* ระยะห่างระหว่างปุ่มแต่ละอัน */
+  justify-content: center; /* จัดให้อยู่กึ่งกลางหน้าจอ */
+  margin-top: 16px;
+  width: 100%;
+}
+
+/* ดีไซน์ปุ่มปกติ (ยังไม่ได้เลือก) */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* ระยะห่างเผื่อใบเฟิร์นใส่ Emoji ในตัวแปร loc ด้วย */
+  
+  /* รูปร่างปุ่ม */
+  padding: 10px 20px;
+  border-radius: 50px; /* ขอบมนเป็นแคปซูล */
+  border: 1px solid #716259; /* สีกรอบเส้นเป็นสีน้ำตาลเทาตามภาพ */
+  background-color: transparent; /* พื้นหลังโปร่งใส (หรือจะใช้ rgba(255,255,255,0.3) ก็ได้ครับ) */
+  
+  /* ตัวหนังสือ */
+  color: #4A3C31; /* สีตัวหนังสือโทนน้ำตาลเข้ม */
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; /* ทำให้ตอนกดเปลี่ยนสีดูสมูท ไม่กระตุก */
+}
+
+/* ดีไซน์ปุ่มตอนถูกเลือก (Active) */
+.chip.active {
+  background-color: #2D5A4C; /* เปลี่ยนพื้นหลังเป็นสีเขียวเข้มแบบในภาพ */
+  border-color: #2D5A4C; /* เปลี่ยนสีกรอบให้กลืนกับพื้นหลัง */
+  color: #FFFFFF; /* เปลี่ยนสีตัวอักษรและ Emoji เป็นสีขาว */
+}
+
+/* (ออปชันเสริม) เวลานำเมาส์ไปชี้ให้มี Feedback เล็กน้อย */
+.chip:hover:not(.active) {
+  background-color: rgba(113, 98, 89, 0.1); 
+}
+
+/* 1. จัดการกล่องหุ้มปุ่ม (เว้นระยะห่าง 'ระหว่าง' ปุ่ม ซ้าย-ขวา บน-ล่าง) */
+.chip-wrap {
+  display: flex;
+  flex-wrap: wrap; /* ถ้าปุ่มยาวเกินขอบจอ ให้ปัดตกมาบรรทัดใหม่ */
+  gap: 12px; /* 👈 ระยะห่างระหว่างปุ่มแต่ละอัน (ภายนอก) */
+  margin-top: 16px; /* ระยะห่างจากข้อความด้านบน */
+  margin-bottom: 20px; /* ระยะห่างก่อนถึงช่องพิมพ์ข้อความ */
+  justify-content: center; /* จัดให้ปุ่มเรียงชิดซ้ายตามในรูป */
+}
+
+/* 2. จัดการตัวปุ่มเฉพาะในหน้านี้ (เว้นระยะห่าง 'ภายใน' ปุ่ม) */
+/* การเขียน .chip-wrap นำหน้า จะทำให้สไตล์นี้มีผลแค่ปุ่มที่อยู่ในกรอบนี้เท่านั้น ไม่กระทบหน้าแรกครับ */
+.chip-wrap .chip {
+  padding: 10px 22px; /* 👈 (บน-ล่าง 10px) (ซ้าย-ขวา 22px) ปรับตัวเลขเพิ่มลดความอ้วนปุ่มได้ตามชอบครับ */
+  
+  /* ดึงดีไซน์สีและขอบเดิมมาใช้ จะได้คุมโทนเดียวกัน */
+  border-radius: 50px; 
+  border: 1px solid #716259;
+  background-color: rgba(255, 255, 255, 0.2); /* พื้นหลังใสๆ นิดนึงแบบในรูป */
+  color: #4A3C31;
+}
+
+/* 3. ตอนที่ปุ่มถูกเลือก (Active) เฉพาะในหน้านี้ */
+.chip-wrap .chip.active {
+  background-color: #2D5A4C; /* พื้นหลังสีเขียวเข้ม */
+  border-color: #2D5A4C;
+  color: #FFFFFF;
+}
+
+/* //textarea ที่ใช้ในหน้า มันรู้สึกยังไง */
+/* ออกแบบกล่อง Textarea ให้เข้ากับธีม Lony */
+.lony-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px; /* เพิ่มพื้นที่ว่างข้างในให้ดูไม่อึดอัด */
+  background-color: rgba(255, 255, 255, 0.85); /* สีขาวแบบโปร่งแสงนิดๆ ให้ดูกลืนกับพื้นหลัง */
+  border: 1.5px solid #E2DFD2; /* ขอบสีครีมเทาอ่อนๆ */
+  border-radius: 16px; /* ขอบมน ให้ล้อไปกับกล่อง LONY ด้านล่าง */
+  
+  font-family: inherit; /* ดึงฟอนต์ของแอปมาใช้ */
+  font-size: 15px;
+  color: #38332E; /* สีตัวหนังสือโทนน้ำตาลเข้ม/เทาเข้ม ให้อ่านง่ายแต่ไม่แข็งเท่าสีดำ */
+  line-height: 1.5;
+  
+  resize: none; /* ซ่อนลูกศรยืดหดมุมขวาล่าง เพื่อล็อค Layout ให้สวยงาม */
+  outline: none; /* เอาเส้นขอบสีฟ้าๆ ตอนคลิก (ของเบราว์เซอร์) ออก */
+  
+  /* ใส่เงาด้านในบางๆ ให้ดูเป็นหลุมลงไปนิดนึง */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease; /* ทำให้ตอนกดพิมพ์มีแอนิเมชันนุ่มๆ */
+}
+
+/* สีของข้อความ Placeholder ("หรือพิมพ์เองก็ได้...") */
+.lony-textarea::placeholder {
+  color: #B3AEA0; /* สีเทาอมน้ำตาลอ่อนๆ */
+}
+
+/* ดีไซน์ตอนที่ผู้ใช้คลิกพิมพ์ (Focus) */
+.lony-textarea:focus {
+  background-color: #FFFFFF; /* เปลี่ยนเป็นสีขาวทึบตอนพิมพ์ */
+  border-color: #3F6A54; /* เปลี่ยนสีกรอบเป็นสีเขียวเข้มแบบเดียวกับปุ่ม */
+  box-shadow: 0 0 0 3px rgba(63, 106, 84, 0.15); /* เปล่งแสงสีเขียวอ่อนๆ รอบกล่อง */
+}
