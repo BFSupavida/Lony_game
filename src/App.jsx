@@ -85,14 +85,18 @@ export default function App() {
           <Badge>Lony - LONELINESS RELIEF</Badge>
 
           {/* 🎨 DESIGN ZONE: Logo + Mascot */}
-          <h1 className="lony-logo">Lony</h1>
+          {/* <h1 className="lony-logo">Lony</h1> */}
           {/* ↑ ใส่รูปนก SVG หรือ mascot ตรงนี้ */}
 
+          <br />  
           <h2 style={{ marginTop: 16, marginBottom: 8 }}>รู้สึกเหงาอยู่ใช่ไหม?</h2>
           <p style={{ marginBottom: 20 }}>
             นกน้อย Lony อยู่ตรงนี้นะ 🤍 มาทำ session
             5-10 นาที ทำให้ความรู้สึกดีขึ้นได้จริง ๆ
           </p>
+                  <br />  
+
+
 
           {/* Science steps */}
           <div className="steps-box">

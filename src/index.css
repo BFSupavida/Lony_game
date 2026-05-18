@@ -109,7 +109,8 @@ button:active { transform: scale(0.97); }
   
   /* สีทอง/เหลืองมัสตาร์ดตามรูป Lony */
   /* color: #F4B961;  */
-  color: #1A1513;
+  /* color: #1A1513; */
+  color:#FFFFFF;
   
   line-height: 1; /* ให้ชิดตัวบนตัวล่าง */
   margin: 0;

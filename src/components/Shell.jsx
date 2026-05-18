@@ -41,7 +41,7 @@ export function Shell({ children, phase }) {
             textShadow: '2px 3px 8px rgba(0,0,0,0.4)',
             letterSpacing: 1,
           }}>
-            Lony
+            Lony Top 
           </span>
         </div>
         <div style={{
