@@ -11,9 +11,9 @@ export function Shell({ children, phase }) {
       alignItems: 'center',
       // 🎨 เปลี่ยน background ที่นี่
       // background: COLORS.bgMain,
-      backgroundImage: "url('/public/bd_homepage.jpg')", // ใส่ชื่อไฟล์ที่มีอยู่ในโฟลเดอร์ public
-      backgroundSize: 'cover',       // ให้รูปขยายเต็มพื้นที่
-      backgroundPosition: 'flex-start',  // จัดรูปให้อยู่ตรงกลาง
+      backgroundImage: "url('/bd_homepage.jpg')", // ไฟล์ใน public/ → เสิร์ฟที่ root /
+      backgroundSize: 'cover',
+      backgroundPosition: 'center top',
       backgroundRepeat: 'no-repeat', // ไม่ให้รูปวนซ้ำ
       backgroundAttachment: 'fixed', // (Option) ให้รูปอยู่กับที่เวลา Scroll ดูพรีเมียมขึ้น
 
